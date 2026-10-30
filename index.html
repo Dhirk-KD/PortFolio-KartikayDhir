@@ -36,7 +36,6 @@
       <a href="index.html" class="active" aria-current="page">Home</a>
       <a href="experience.html">Experience</a>
       <a href="projects.html">Projects</a>
-      <a href="contact.html">Contact</a>
     </nav>
 
   </div>
@@ -55,8 +54,8 @@
       <p class="lead">I'm an IT Support student and former Bell field technician. I find the root cause of a problem and explain the fix in plain language.</p>
 
       <div class="btn-row">
-        <a class="btn btn-green" href="resume/Kartikay-Dhir-Resume.pdf" download>Download Resume</a>
-        <a class="btn btn-outline" href="contact.html">Contact Me</a>
+        <button class="btn btn-green" type="button" data-resume-open>View Resume</button>
+        <a class="btn btn-outline" href="#about">About Me</a>
       </div>
 
       <!-- Social icons -->
@@ -75,6 +74,19 @@
       <img src="images/kartikay.png" alt="Kartikay Dhir holding his Durham College diploma" width="391" height="387">
     </div>
 
+  </div>
+</section>
+
+<!-- ================= ABOUT =================
+     Edit the paragraph below to change your bio. Links sit under it. -->
+<section class="section tint" id="about">
+  <div class="wrap about">
+    <h2>About</h2>
+    <p>IT student and former Bell field technician who likes tracking down the root cause of a problem and explaining the fix in plain language. For 2.5 years I diagnosed and repaired internet, phone and TV services in customers&rsquo; homes (3 to 4 per day), and earned Merit Excellence GOLD recognition at Bell. I&rsquo;m now completing the Computer Systems Technology advanced diploma at Durham College (graduating April 2027), working with Windows Server 2022, Active Directory, Group Policy, DNS/DHCP and Linux.</p>
+    <p class="about-links">
+      <a class="btn btn-green" href="https://www.linkedin.com/in/kartikaydhir/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+      <a href="mailto:kartikaydhir23@gmail.com">kartikaydhir23@gmail.com</a>
+    </p>
   </div>
 </section>
 
@@ -129,6 +141,20 @@
     </div>
   </div>
 </section>
+
+
+<!-- ================= RESUME POP-UP =================
+     Opened by the "View Resume" button (js/main.js). Replace resume/Kartikay-Dhir-Resume.pdf with your final resume. -->
+<dialog id="resume-dialog" class="resume-dialog" aria-label="Resume">
+  <div class="resume-bar">
+    <strong>Resume</strong>
+    <span>
+      <a href="resume/Kartikay-Dhir-Resume.pdf" target="_blank" rel="noopener">Open in new tab</a>
+      <button type="button" data-resume-close>Close</button>
+    </span>
+  </div>
+  <iframe id="resume-frame" title="Kartikay Dhir resume" data-src="resume/Kartikay-Dhir-Resume.pdf"></iframe>
+</dialog>
 
 </main>
 

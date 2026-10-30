@@ -214,3 +214,25 @@ form button { margin-top: 20px; }
   .hero-photo img { animation: none; }
   .card, .job-card, .btn, .cert-fig img { transition: none; }
 }
+
+/* =====================================================
+   11. Logos as pictures, About section, Resume pop-up
+   ===================================================== */
+
+/* Logo pictures are already cropped square, so no extra padding */
+.logo img { padding: 0; background: none; }
+.job-head .logo { width: 72px; height: 72px; }
+
+/* About */
+.about p { max-width: 760px; font-size: 1.12rem; }
+.about-links { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; margin-top: 28px; }
+.about-links .btn { color: var(--navy); }
+
+/* Resume pop-up (native <dialog>) */
+.resume-dialog { width: min(960px, 94vw); height: 90vh; padding: 0; border: 0; border-radius: var(--radius); overflow: hidden; box-shadow: 0 30px 80px rgba(0, 0, 0, .5); }
+.resume-dialog[open] { display: flex; flex-direction: column; }
+.resume-dialog::backdrop { background: rgba(16, 36, 79, .75); }
+.resume-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; background: var(--navy); color: #fff; padding: 12px 20px; }
+.resume-bar a { color: var(--grass); margin-right: 16px; }
+.resume-bar button { background: var(--grass); color: var(--navy); border: 0; border-radius: 999px; padding: 8px 20px; font: inherit; font-weight: 700; cursor: pointer; }
+.resume-dialog iframe { flex: 1; width: 100%; border: 0; background: #fff; }
