@@ -144,16 +144,20 @@
 
 
 <!-- ================= RESUME POP-UP =================
-     Opened by the "View Resume" button (js/main.js). Replace resume/Kartikay-Dhir-Resume.pdf with your final resume. -->
+     Opened by the "View Resume" button (js/main.js). It shows the resume as page pictures
+     (works on phones too). To update: replace resume/Kartikay-Dhir-Resume.pdf, then re-export
+     the pages as images/resume/resume-page-1.png (add more <img> lines for extra pages). -->
 <dialog id="resume-dialog" class="resume-dialog" aria-label="Resume">
   <div class="resume-bar">
     <strong>Resume</strong>
     <span>
-      <a href="resume/Kartikay-Dhir-Resume.pdf" target="_blank" rel="noopener">Open in new tab</a>
+      <a href="resume/Kartikay-Dhir-Resume.pdf" download>Download PDF</a>
       <button type="button" data-resume-close>Close</button>
     </span>
   </div>
-  <iframe id="resume-frame" title="Kartikay Dhir resume" data-src="resume/Kartikay-Dhir-Resume.pdf"></iframe>
+  <div class="resume-pages">
+    <img src="images/resume/resume-page-1.png" alt="Kartikay Dhir resume, page 1" loading="lazy">
+  </div>
 </dialog>
 
 </main>

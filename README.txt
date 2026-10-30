@@ -10,7 +10,7 @@ PUT IT ON GITHUB PAGES
 5. LinkedIn: Contact info > Website > paste the address.
 
 THINGS TO EDIT
-- resume/Kartikay-Dhir-Resume.pdf : replace with your final resume (keep the name). It shows in the pop-up.
+- resume/Kartikay-Dhir-Resume.pdf : replace with your final resume (keep the name). Then re-export its pages into images/resume/ (the pop-up shows those pictures).
 - images/kartikay.png   : your photo
 - images/logos/         : bell, popeyes, bestbuy, durham are in. Add fiveguys.png for Five Guys.
 - index.html            : About text, certificates ("CERTIFICATIONS" comment)

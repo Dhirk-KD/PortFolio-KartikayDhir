@@ -20,14 +20,9 @@ if (menuBtn && menu) {
 const dialog = document.getElementById('resume-dialog');
 
 if (dialog) {
-  const frame = document.getElementById('resume-frame');
-
-  // Open: load the PDF the first time, then show the pop-up
+  // Open: show the pop-up
   document.querySelectorAll('[data-resume-open]').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      if (!frame.getAttribute('src')) frame.setAttribute('src', frame.dataset.src);
-      dialog.showModal();
-    });
+    btn.addEventListener('click', () => dialog.showModal());
   });
 
   // Close: the Close button, or a click on the dark area around the pop-up

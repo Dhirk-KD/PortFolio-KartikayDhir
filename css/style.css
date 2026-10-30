@@ -236,3 +236,7 @@ form button { margin-top: 20px; }
 .resume-bar a { color: var(--grass); margin-right: 16px; }
 .resume-bar button { background: var(--grass); color: var(--navy); border: 0; border-radius: 999px; padding: 8px 20px; font: inherit; font-weight: 700; cursor: pointer; }
 .resume-dialog iframe { flex: 1; width: 100%; border: 0; background: #fff; }
+
+/* Resume pop-up now shows page pictures instead of an embedded PDF */
+.resume-pages { flex: 1; overflow: auto; background: #e8ecf5; padding: 16px; }
+.resume-pages img { display: block; width: 100%; max-width: 820px; margin: 0 auto 16px; background: #fff; box-shadow: 0 10px 30px -10px rgba(16, 36, 79, .5); }
