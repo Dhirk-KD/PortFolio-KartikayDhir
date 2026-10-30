@@ -1,0 +1,99 @@
+<!-- =====================================================
+     contact.html - CONTACT PAGE - form is sent by Formspree
+     ===================================================== -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact | Kartikay Dhir</title>
+  <meta name="description" content="Kartikay Dhir - IT Support student and former Bell field technician. Active Directory, Windows Server and networking.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+
+<!-- ================= TOP MENU ================= -->
+<header class="site-header">
+  <div class="wrap nav">
+
+    <!-- Logo + name -->
+    <a class="brand" href="index.html">
+      <span class="brand-mark">KD</span>
+      <span class="brand-name">Kartikay Dhir</span>
+    </a>
+
+    <!-- Hamburger button (phones only) -->
+    <button class="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <!-- Menu links -->
+    <nav id="menu" class="menu">
+      <a href="index.html">Home</a>
+      <a href="experience.html">Experience</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html" class="active" aria-current="page">Contact</a>
+    </nav>
+
+  </div>
+</header>
+
+<main>
+
+<section class="page-title"><div class="wrap"><h1>Contact</h1></div></section>
+
+<section class="section">
+  <div class="wrap contact-grid">
+
+    <!-- Left: direct links -->
+    <div>
+      <h2>Let's talk</h2>
+      <p>I'm looking for an IT field placement or an entry-level help desk, desktop support or junior sysadmin role in Durham Region and the GTA.</p>
+      <p><a href="mailto:kartikaydhir23@gmail.com">kartikaydhir23@gmail.com</a></p>
+      <p><a href="https://www.linkedin.com/in/kartikaydhir/" target="_blank" rel="noopener">linkedin.com/in/kartikaydhir</a></p>
+    </div>
+
+    <!-- Right: form -->
+    <!-- Form is sent by Formspree (free). Replace YOUR_FORM_ID with your own id from formspree.io -->
+    <form method="post" action="https://formspree.io/f/YOUR_FORM_ID" id="contact-form" novalidate>
+      <!-- Message shown after sending (filled in by js/main.js) -->
+      <p class="notice" id="form-status" role="status" hidden></p>
+
+      <!-- Honeypot: hidden from people, bots fill it in (Formspree ignores those) -->
+      <div class="hp" aria-hidden="true"><label>Leave empty <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
+
+      <label for="name">Name</label>
+      <input id="name" name="name" type="text" required>
+
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="6" required></textarea>
+
+      <p class="field-error" id="form-error" role="alert"></p>
+      <button class="btn btn-green" type="submit">Send Message</button>
+    </form>
+
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="wrap footer-row">
+    <p>&copy; <span id="year">2026</span> Kartikay Dhir. Oshawa, Ontario.</p>
+    <p>
+      <a href="https://www.linkedin.com/in/kartikaydhir/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:kartikaydhir23@gmail.com">Email</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
