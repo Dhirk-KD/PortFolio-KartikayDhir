@@ -1,7 +1,7 @@
 /* =====================================================
    main.js - small interactive bits
    1. Mobile menu open/close
-   2. Resume pop-up open/close
+   2. Pop-ups open/close
    ===================================================== */
 
 /* ---------- 1. Mobile menu ---------- */
@@ -16,19 +16,20 @@ if (menuBtn && menu) {
   });
 }
 
-/* ---------- 2. Resume pop-up ---------- */
-const dialog = document.getElementById('resume-dialog');
-
-if (dialog) {
-  // Open: show the pop-up
-  document.querySelectorAll('[data-resume-open]').forEach((btn) => {
-    btn.addEventListener('click', () => dialog.showModal());
+/* ---------- 2. Pop-ups (resume, project PDF, network topology) ----------
+   A button with data-dialog-open="some-id" opens <dialog id="some-id">.
+   A button with data-dialog-close, or a click on the dark area, closes it. */
+document.querySelectorAll('[data-dialog-open]').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const box = document.getElementById(btn.dataset.dialogOpen);
+    if (box) box.showModal();
   });
+});
 
-  // Close: the Close button, or a click on the dark area around the pop-up
-  dialog.querySelector('[data-resume-close]').addEventListener('click', () => dialog.close());
-  dialog.addEventListener('click', (e) => { if (e.target === dialog) dialog.close(); });
-}
+document.querySelectorAll('dialog').forEach((box) => {
+  box.querySelectorAll('[data-dialog-close]').forEach((b) => b.addEventListener('click', () => box.close()));
+  box.addEventListener('click', (e) => { if (e.target === box) box.close(); });
+});
 
 /* ---------- 3. 3D tilt on hover (mouse only, off for reduced motion) ---------- */
 const canTilt = window.matchMedia('(hover: hover)').matches &&

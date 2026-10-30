@@ -1,5 +1,7 @@
 <!-- =====================================================
-     projects.html - PROJECTS PAGE - empty for now, add .card items inside .grid-3
+     projects.html - PROJECTS PAGE
+     To add a project, copy the <article class="project"> block.
+     Buttons use data-dialog-open="<id of a pop-up at the bottom of this page>".
      ===================================================== -->
 <!DOCTYPE html>
 <html lang="en">
@@ -46,13 +48,90 @@
 <section class="page-title"><div class="wrap"><h1>Projects</h1></div></section>
 
 <section class="section">
-  <div class="wrap">
-    <div class="grid-3">
-      <!-- Project cards go here -->
-    </div>
-    <p class="muted">Projects are coming soon.</p>
+  <div class="wrap stack">
+
+    <!-- ================= PROJECT 1 ================= -->
+    <article class="job-card project">
+
+      <!-- Left: network topology preview (click to enlarge) -->
+      <button class="project-thumb" type="button" data-dialog-open="topology-dialog" aria-label="Open the network topology diagram">
+        <img src="images/projects/network-topology.jpg" alt="Network topology of the Windows Server 2022 Active Directory lab" loading="lazy">
+        <span>View Network Topology</span>
+      </button>
+
+      <!-- Right: details -->
+      <div class="project-body">
+        <p class="project-date">Jan 2026 - Apr 2026</p>
+        <h2>Windows Server 2022 &ndash; Active Directory &amp; Enterprise Security Lab</h2>
+        <p>Designed and implemented a Windows Server 2022 enterprise lab environment simulating a real organizational network.</p>
+        <p>Configured Active Directory Domain Services (AD DS), DNS, and DHCP. Created Organizational Units (Finance, HR, IT), managed users and security groups, and implemented Group Policy Objects (GPOs) for password policies, account lockout, security restrictions, and department-based drive mapping using item-level targeting.</p>
+        <p>Configured NTFS permissions for secure departmental file shares and enabled advanced security auditing for sensitive Finance data (Event ID 4663).</p>
+        <p>Performed testing and troubleshooting by simulating DNS failures, unauthorized access attempts, and account lockouts. Validated configurations using gpupdate, gpresult, auditpol, and Event Viewer.</p>
+
+        <h3>Skills used</h3>
+        <ul class="chips">
+        <li>Group Policy (GPO)</li>
+        <li>Windows Server 2022</li>
+        <li>Security Auditing</li>
+        <li>DHCP</li>
+        <li>Network Administration</li>
+        <li>Active Directory</li>
+        <li>Event Viewer</li>
+        <li>DNS</li>
+        <li>NTFS Permissions</li>
+        <li>Identity and Access Management (IAM)</li>
+        </ul>
+
+        <div class="btn-row">
+          <button class="btn btn-green" type="button" data-dialog-open="project-pdf-dialog">View Project PDF</button>
+          <button class="btn btn-dark" type="button" data-dialog-open="topology-dialog">View Network Topology</button>
+        </div>
+      </div>
+    </article>
+
   </div>
 </section>
+
+<!-- ================= POP-UP: PROJECT PDF (shown as page pictures) ================= -->
+<dialog id="project-pdf-dialog" class="resume-dialog" aria-label="Project document">
+  <div class="resume-bar">
+    <strong>Project document</strong>
+    <span>
+      <a href="projects/Windows-Server-2022-AD-Project.pdf" download>Download PDF</a>
+      <button type="button" data-dialog-close>Close</button>
+    </span>
+  </div>
+  <div class="resume-pages">
+    <img src="images/projects/ad-lab-page-01.jpg" alt="Project document, page 1 of 17" loading="lazy">
+    <img src="images/projects/ad-lab-page-02.jpg" alt="Project document, page 2 of 17" loading="lazy">
+    <img src="images/projects/ad-lab-page-03.jpg" alt="Project document, page 3 of 17" loading="lazy">
+    <img src="images/projects/ad-lab-page-04.jpg" alt="Project document, page 4 of 17" loading="lazy">
+    <img src="images/projects/ad-lab-page-05.jpg" alt="Project document, page 5 of 17" loading="lazy">
+    <img src="images/projects/ad-lab-page-06.jpg" alt="Project document, page 6 of 17" loading="lazy">
+    <img src="images/projects/ad-lab-page-07.jpg" alt="Project document, page 7 of 17" loading="lazy">
+    <img src="images/projects/ad-lab-page-08.jpg" alt="Project document, page 8 of 17" loading="lazy">
+    <img src="images/projects/ad-lab-page-09.jpg" alt="Project document, page 9 of 17" loading="lazy">
+    <img src="images/projects/ad-lab-page-10.jpg" alt="Project document, page 10 of 17" loading="lazy">
+    <img src="images/projects/ad-lab-page-11.jpg" alt="Project document, page 11 of 17" loading="lazy">
+    <img src="images/projects/ad-lab-page-12.jpg" alt="Project document, page 12 of 17" loading="lazy">
+    <img src="images/projects/ad-lab-page-13.jpg" alt="Project document, page 13 of 17" loading="lazy">
+    <img src="images/projects/ad-lab-page-14.jpg" alt="Project document, page 14 of 17" loading="lazy">
+    <img src="images/projects/ad-lab-page-15.jpg" alt="Project document, page 15 of 17" loading="lazy">
+    <img src="images/projects/ad-lab-page-16.jpg" alt="Project document, page 16 of 17" loading="lazy">
+    <img src="images/projects/ad-lab-page-17.jpg" alt="Project document, page 17 of 17" loading="lazy">
+  </div>
+</dialog>
+
+<!-- ================= POP-UP: NETWORK TOPOLOGY ================= -->
+<dialog id="topology-dialog" class="resume-dialog" aria-label="Network topology">
+  <div class="resume-bar">
+    <strong>Network topology</strong>
+    <span><button type="button" data-dialog-close>Close</button></span>
+  </div>
+  <div class="resume-pages">
+    <img src="images/projects/network-topology.jpg" alt="Network topology: DC01 running Windows Server 2022 for corp.local, two domain-joined clients, three organizational units, group policies and monitoring" style="max-width:1100px">
+  </div>
+</dialog>
 
 </main>
 
