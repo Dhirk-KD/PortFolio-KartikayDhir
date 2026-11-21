@@ -1,7 +1,5 @@
 <!-- =====================================================
-     projects.html - PROJECTS PAGE
-     To add a project, copy the <article class="project"> block.
-     Buttons use data-dialog-open="<id of a pop-up at the bottom of this page>".
+     projects.html - PROJECTS. Copy a <article class="job-card project"> block to add a project. Buttons open pop-ups by id (see bottom of file).
      ===================================================== -->
 <!DOCTYPE html>
 <html lang="en">
@@ -21,25 +19,14 @@
 <!-- ================= TOP MENU ================= -->
 <header class="site-header">
   <div class="wrap nav">
-
-    <!-- Logo + name -->
-    <a class="brand" href="index.html">
-      <span class="brand-mark">KD</span>
-      <span class="brand-name">Kartikay Dhir</span>
-    </a>
-
+    <a class="brand" href="index.html"><span class="brand-mark">KD</span><span class="brand-name">Kartikay Dhir</span></a>
     <!-- Hamburger button (phones only) -->
-    <button class="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
-      <span></span><span></span><span></span>
-    </button>
-
-    <!-- Menu links -->
+    <button class="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
     <nav id="menu" class="menu">
       <a href="index.html">Home</a>
       <a href="experience.html">Experience</a>
       <a href="projects.html" class="active" aria-current="page">Projects</a>
     </nav>
-
   </div>
 </header>
 
@@ -52,14 +39,10 @@
 
     <!-- ================= PROJECT 1 ================= -->
     <article class="job-card project">
-
-      <!-- Left: network topology preview (click to enlarge) -->
-      <button class="project-thumb" type="button" data-dialog-open="topology-dialog" aria-label="Open the network topology diagram">
+      <button class="project-thumb" type="button" data-dialog-open="topology-dialog" aria-label="View Network Topology">
         <img src="images/projects/network-topology.jpg" alt="Network topology of the Windows Server 2022 Active Directory lab" loading="lazy">
         <span>View Network Topology</span>
       </button>
-
-      <!-- Right: details -->
       <div class="project-body">
         <p class="project-date">Jan 2026 - Apr 2026</p>
         <h2>Windows Server 2022 &ndash; Active Directory &amp; Enterprise Security Lab</h2>
@@ -67,21 +50,19 @@
         <p>Configured Active Directory Domain Services (AD DS), DNS, and DHCP. Created Organizational Units (Finance, HR, IT), managed users and security groups, and implemented Group Policy Objects (GPOs) for password policies, account lockout, security restrictions, and department-based drive mapping using item-level targeting.</p>
         <p>Configured NTFS permissions for secure departmental file shares and enabled advanced security auditing for sensitive Finance data (Event ID 4663).</p>
         <p>Performed testing and troubleshooting by simulating DNS failures, unauthorized access attempts, and account lockouts. Validated configurations using gpupdate, gpresult, auditpol, and Event Viewer.</p>
-
         <h3>Skills used</h3>
         <ul class="chips">
-        <li>Group Policy (GPO)</li>
-        <li>Windows Server 2022</li>
-        <li>Security Auditing</li>
-        <li>DHCP</li>
-        <li>Network Administration</li>
-        <li>Active Directory</li>
-        <li>Event Viewer</li>
-        <li>DNS</li>
-        <li>NTFS Permissions</li>
-        <li>Identity and Access Management (IAM)</li>
+          <li>Group Policy (GPO)</li>
+          <li>Windows Server 2022</li>
+          <li>Security Auditing</li>
+          <li>DHCP</li>
+          <li>Network Administration</li>
+          <li>Active Directory</li>
+          <li>Event Viewer</li>
+          <li>DNS</li>
+          <li>NTFS Permissions</li>
+          <li>Identity and Access Management (IAM)</li>
         </ul>
-
         <div class="btn-row">
           <button class="btn btn-green" type="button" data-dialog-open="project-pdf-dialog">View Project PDF</button>
           <button class="btn btn-dark" type="button" data-dialog-open="topology-dialog">View Network Topology</button>
@@ -89,47 +70,101 @@
       </div>
     </article>
 
+    <!-- ================= PROJECT 2 ================= -->
+    <article class="job-card project">
+      <!-- Small corner badge so recruiters see this is coursework -->
+      <span class="academic-badge" title="Academic project: INFT 3105 Database Management, Durham College"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-4.5"/><path d="M22 9v6"/></svg>Academic project</span>
+      <button class="project-thumb" type="button" data-dialog-open="er-dialog" aria-label="View ER Diagram">
+        <img src="images/projects/vet-er-diagram.jpg" alt="Entity-relationship diagram of the VetClinicDB database" loading="lazy">
+        <span>View ER Diagram</span>
+      </button>
+      <div class="project-body">
+        <p class="project-date">Sept 2026 - Dec 2026</p>
+        <h2>VetClinicDB &ndash; Veterinary Clinic Database (Microsoft SQL Server)</h2>
+        <p>Designed and built a relational database in Microsoft SQL Server that manages the records of a veterinary clinic: owners and pets, veterinarians, appointments, treatments, medications, prescriptions and invoices. Completed as an individual project for INFT 3105 Database Management at Durham College.</p>
+        <p>Worked in three phases: a nine-table schema, normalization to 3NF that grew it to 11 tables, and transaction management. Business rules are enforced in the database with primary and foreign keys, CHECK and UNIQUE constraints, and a persisted computed invoice total.</p>
+        <p>Loaded 2,380 rows of synthetic data and wrote three T-SQL transactions (client registration, visit checkout and refund), each across five tables, using TRY...CATCH with rollback.</p>
+        <p>Verified the design with row-count and join queries, and by testing failures: an over-dispensed medication triggered a constraint error (547) that rolled back the whole checkout, and a repeat refund was rejected by a guard clause (error 50003).</p>
+        <h3>Skills used</h3>
+        <ul class="chips">
+          <li>Microsoft SQL Server</li>
+          <li>T-SQL</li>
+          <li>Database Design</li>
+          <li>Normalization (3NF)</li>
+          <li>ER Diagrams</li>
+          <li>Transactions (ACID)</li>
+          <li>Data Integrity</li>
+          <li>SSMS</li>
+        </ul>
+        <div class="btn-row">
+          <button class="btn btn-green" type="button" data-dialog-open="vet-pdf-dialog">View Project Report</button>
+          <button class="btn btn-dark" type="button" data-dialog-open="er-dialog">View ER Diagram</button>
+        </div>
+      </div>
+    </article>
+
   </div>
 </section>
 
-<!-- ================= POP-UP: PROJECT PDF (shown as page pictures) ================= -->
+<!-- ================= POP-UP: PROJECT DOCUMENT ================= -->
 <dialog id="project-pdf-dialog" class="resume-dialog" aria-label="Project document">
-  <div class="resume-bar">
-    <strong>Project document</strong>
-    <span>
-      <a href="projects/Windows-Server-2022-AD-Project.pdf" download>Download PDF</a>
-      <button type="button" data-dialog-close>Close</button>
-    </span>
-  </div>
+  <div class="resume-bar"><strong>Project document</strong><span><a href="projects/Windows-Server-2022-AD-Project.pdf" download>Download PDF</a><button type="button" data-dialog-close>Close</button></span></div>
   <div class="resume-pages">
-    <img src="images/projects/ad-lab-page-01.jpg" alt="Project document, page 1 of 17" loading="lazy">
-    <img src="images/projects/ad-lab-page-02.jpg" alt="Project document, page 2 of 17" loading="lazy">
-    <img src="images/projects/ad-lab-page-03.jpg" alt="Project document, page 3 of 17" loading="lazy">
-    <img src="images/projects/ad-lab-page-04.jpg" alt="Project document, page 4 of 17" loading="lazy">
-    <img src="images/projects/ad-lab-page-05.jpg" alt="Project document, page 5 of 17" loading="lazy">
-    <img src="images/projects/ad-lab-page-06.jpg" alt="Project document, page 6 of 17" loading="lazy">
-    <img src="images/projects/ad-lab-page-07.jpg" alt="Project document, page 7 of 17" loading="lazy">
-    <img src="images/projects/ad-lab-page-08.jpg" alt="Project document, page 8 of 17" loading="lazy">
-    <img src="images/projects/ad-lab-page-09.jpg" alt="Project document, page 9 of 17" loading="lazy">
-    <img src="images/projects/ad-lab-page-10.jpg" alt="Project document, page 10 of 17" loading="lazy">
-    <img src="images/projects/ad-lab-page-11.jpg" alt="Project document, page 11 of 17" loading="lazy">
-    <img src="images/projects/ad-lab-page-12.jpg" alt="Project document, page 12 of 17" loading="lazy">
-    <img src="images/projects/ad-lab-page-13.jpg" alt="Project document, page 13 of 17" loading="lazy">
-    <img src="images/projects/ad-lab-page-14.jpg" alt="Project document, page 14 of 17" loading="lazy">
-    <img src="images/projects/ad-lab-page-15.jpg" alt="Project document, page 15 of 17" loading="lazy">
-    <img src="images/projects/ad-lab-page-16.jpg" alt="Project document, page 16 of 17" loading="lazy">
-    <img src="images/projects/ad-lab-page-17.jpg" alt="Project document, page 17 of 17" loading="lazy">
+    <img src="images/projects/ad-lab-page-01.jpg" alt="AD lab document, page 1" loading="lazy">
+    <img src="images/projects/ad-lab-page-02.jpg" alt="AD lab document, page 2" loading="lazy">
+    <img src="images/projects/ad-lab-page-03.jpg" alt="AD lab document, page 3" loading="lazy">
+    <img src="images/projects/ad-lab-page-04.jpg" alt="AD lab document, page 4" loading="lazy">
+    <img src="images/projects/ad-lab-page-05.jpg" alt="AD lab document, page 5" loading="lazy">
+    <img src="images/projects/ad-lab-page-06.jpg" alt="AD lab document, page 6" loading="lazy">
+    <img src="images/projects/ad-lab-page-07.jpg" alt="AD lab document, page 7" loading="lazy">
+    <img src="images/projects/ad-lab-page-08.jpg" alt="AD lab document, page 8" loading="lazy">
+    <img src="images/projects/ad-lab-page-09.jpg" alt="AD lab document, page 9" loading="lazy">
+    <img src="images/projects/ad-lab-page-10.jpg" alt="AD lab document, page 10" loading="lazy">
+    <img src="images/projects/ad-lab-page-11.jpg" alt="AD lab document, page 11" loading="lazy">
+    <img src="images/projects/ad-lab-page-12.jpg" alt="AD lab document, page 12" loading="lazy">
+    <img src="images/projects/ad-lab-page-13.jpg" alt="AD lab document, page 13" loading="lazy">
+    <img src="images/projects/ad-lab-page-14.jpg" alt="AD lab document, page 14" loading="lazy">
+    <img src="images/projects/ad-lab-page-15.jpg" alt="AD lab document, page 15" loading="lazy">
+    <img src="images/projects/ad-lab-page-16.jpg" alt="AD lab document, page 16" loading="lazy">
+    <img src="images/projects/ad-lab-page-17.jpg" alt="AD lab document, page 17" loading="lazy">
   </div>
 </dialog>
 
 <!-- ================= POP-UP: NETWORK TOPOLOGY ================= -->
 <dialog id="topology-dialog" class="resume-dialog" aria-label="Network topology">
-  <div class="resume-bar">
-    <strong>Network topology</strong>
-    <span><button type="button" data-dialog-close>Close</button></span>
-  </div>
+  <div class="resume-bar"><strong>Network topology</strong><span><button type="button" data-dialog-close>Close</button></span></div>
   <div class="resume-pages">
-    <img src="images/projects/network-topology.jpg" alt="Network topology: DC01 running Windows Server 2022 for corp.local, two domain-joined clients, three organizational units, group policies and monitoring" style="max-width:1100px">
+    <img src="images/projects/network-topology.jpg" alt="Network topology: DC01 running Windows Server 2022 for corp.local, two domain-joined clients, three organizational units, group policies and monitoring" loading="lazy" style="max-width:1000px">
+  </div>
+</dialog>
+
+<!-- ================= POP-UP: VETCLINICDB PROJECT REPORT ================= -->
+<dialog id="vet-pdf-dialog" class="resume-dialog" aria-label="VetClinicDB project report">
+  <div class="resume-bar"><strong>VetClinicDB project report</strong><span><a href="projects/VetClinicDB-Project-Report.pdf" download>Download PDF</a><button type="button" data-dialog-close>Close</button></span></div>
+  <div class="resume-pages">
+    <img src="images/projects/vet-page-01.jpg" alt="VetClinicDB report, page 1" loading="lazy">
+    <img src="images/projects/vet-page-02.jpg" alt="VetClinicDB report, page 2" loading="lazy">
+    <img src="images/projects/vet-page-03.jpg" alt="VetClinicDB report, page 3" loading="lazy">
+    <img src="images/projects/vet-page-04.jpg" alt="VetClinicDB report, page 4" loading="lazy">
+    <img src="images/projects/vet-page-05.jpg" alt="VetClinicDB report, page 5" loading="lazy">
+    <img src="images/projects/vet-page-06.jpg" alt="VetClinicDB report, page 6" loading="lazy">
+    <img src="images/projects/vet-page-07.jpg" alt="VetClinicDB report, page 7" loading="lazy">
+    <img src="images/projects/vet-page-08.jpg" alt="VetClinicDB report, page 8" loading="lazy">
+    <img src="images/projects/vet-page-09.jpg" alt="VetClinicDB report, page 9" loading="lazy">
+    <img src="images/projects/vet-page-10.jpg" alt="VetClinicDB report, page 10" loading="lazy">
+    <img src="images/projects/vet-page-11.jpg" alt="VetClinicDB report, page 11" loading="lazy">
+    <img src="images/projects/vet-page-12.jpg" alt="VetClinicDB report, page 12" loading="lazy">
+    <img src="images/projects/vet-page-13.jpg" alt="VetClinicDB report, page 13" loading="lazy">
+    <img src="images/projects/vet-page-14.jpg" alt="VetClinicDB report, page 14" loading="lazy">
+    <img src="images/projects/vet-page-15.jpg" alt="VetClinicDB report, page 15" loading="lazy">
+  </div>
+</dialog>
+
+<!-- ================= POP-UP: VETCLINICDB ER DIAGRAM ================= -->
+<dialog id="er-dialog" class="resume-dialog" aria-label="VetClinicDB ER diagram">
+  <div class="resume-bar"><strong>VetClinicDB ER diagram</strong><span><button type="button" data-dialog-close>Close</button></span></div>
+  <div class="resume-pages">
+    <img src="images/projects/vet-er-diagram.jpg" alt="Entity-relationship diagram of VetClinicDB showing 11 tables in 3NF" loading="lazy" style="max-width:1000px">
   </div>
 </dialog>
 
@@ -138,11 +173,8 @@
 <!-- ================= FOOTER ================= -->
 <footer class="site-footer">
   <div class="wrap footer-row">
-    <p>&copy; <span id="year">2026</span> Kartikay Dhir. Oshawa, Ontario.</p>
-    <p>
-      <a href="https://www.linkedin.com/in/kartikaydhir/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="mailto:kartikaydhir23@gmail.com">Email</a>
-    </p>
+    <p>&copy; 2026 Kartikay Dhir. Oshawa, Ontario.</p>
+    <p><a href="https://www.linkedin.com/in/kartikaydhir/" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:kartikay_dhir@icloud.com">Email</a></p>
   </div>
 </footer>
 

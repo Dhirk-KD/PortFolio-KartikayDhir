@@ -1,7 +1,8 @@
 /* =====================================================
    main.js - small interactive bits
    1. Mobile menu open/close
-   2. Pop-ups open/close
+   2. Pop-ups (resume, project PDFs, diagrams)
+   3. 3D tilt on hover
    ===================================================== */
 
 /* ---------- 1. Mobile menu ---------- */
@@ -16,7 +17,7 @@ if (menuBtn && menu) {
   });
 }
 
-/* ---------- 2. Pop-ups (resume, project PDF, network topology) ----------
+/* ---------- 2. Pop-ups ----------
    A button with data-dialog-open="some-id" opens <dialog id="some-id">.
    A button with data-dialog-close, or a click on the dark area, closes it. */
 document.querySelectorAll('[data-dialog-open]').forEach((btn) => {
@@ -39,7 +40,7 @@ if (canTilt) {
   document.querySelectorAll('.card, .job-card, .cert-fig img').forEach((el) => {
     el.addEventListener('mousemove', (e) => {
       const box = el.getBoundingClientRect();
-      const x = (e.clientX - box.left) / box.width  - 0.5;   // -0.5 to 0.5
+      const x = (e.clientX - box.left) / box.width  - 0.5;
       const y = (e.clientY - box.top)  / box.height - 0.5;
       el.style.transform = `perspective(900px) rotateX(${(-y * 5).toFixed(2)}deg) rotateY(${(x * 5).toFixed(2)}deg) translateY(-4px)`;
     });
