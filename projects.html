@@ -1,5 +1,5 @@
 <!-- =====================================================
-     projects.html - PROJECTS. Copy a <article class="job-card project"> block to add a project. Buttons open pop-ups by id (see bottom of file).
+     projects.html - PROJECTS. Each project = one card in the grid + a details pop-up + a media pop-up (topology and PDF). Copy a card and its two <dialog> blocks to add a project.
      ===================================================== -->
 <!DOCTYPE html>
 <html lang="en">
@@ -35,113 +35,179 @@
 <section class="page-title"><div class="wrap"><h1>Projects</h1></div></section>
 
 <section class="section">
-  <div class="wrap stack">
+  <div class="wrap">
 
-    <!-- ================= PROJECT 1 ================= -->
-    <article class="job-card project">
-      <button class="project-thumb" type="button" data-dialog-open="topology-dialog" aria-label="View Network Topology">
-        <img src="images/projects/network-topology.jpg" alt="Network topology of the Windows Server 2022 Active Directory lab" loading="lazy">
-        <span>View Network Topology</span>
-      </button>
-      <div class="project-body">
-        <p class="project-date">Jan 2026 - Apr 2026</p>
-        <h2>Windows Server 2022 &ndash; Active Directory &amp; Enterprise Security Lab</h2>
-        <p>Designed and implemented a Windows Server 2022 enterprise lab environment simulating a real organizational network.</p>
-        <p>Configured Active Directory Domain Services (AD DS), DNS, and DHCP. Created Organizational Units (Finance, HR, IT), managed users and security groups, and implemented Group Policy Objects (GPOs) for password policies, account lockout, security restrictions, and department-based drive mapping using item-level targeting.</p>
-        <p>Configured NTFS permissions for secure departmental file shares and enabled advanced security auditing for sensitive Finance data (Event ID 4663).</p>
-        <p>Performed testing and troubleshooting by simulating DNS failures, unauthorized access attempts, and account lockouts. Validated configurations using gpupdate, gpresult, auditpol, and Event Viewer.</p>
-        <h3>Skills used</h3>
-        <ul class="chips">
-          <li>Group Policy (GPO)</li>
-          <li>Windows Server 2022</li>
-          <li>Security Auditing</li>
-          <li>DHCP</li>
-          <li>Network Administration</li>
-          <li>Active Directory</li>
-          <li>Event Viewer</li>
-          <li>DNS</li>
-          <li>NTFS Permissions</li>
-          <li>Identity and Access Management (IAM)</li>
-        </ul>
-        <div class="btn-row">
-          <button class="btn btn-green" type="button" data-dialog-open="project-pdf-dialog">View Project PDF</button>
-          <button class="btn btn-dark" type="button" data-dialog-open="topology-dialog">View Network Topology</button>
+    <!-- Filter buttons: data-filter matches data-cat on each card -->
+    <div class="filters" role="group" aria-label="Filter projects">
+      <button class="chip-btn" type="button" data-filter="all" aria-pressed="true">All (3)</button>
+      <button class="chip-btn" type="button" data-filter="netadmin" aria-pressed="false">Network Administration</button>
+      <button class="chip-btn" type="button" data-filter="db" aria-pressed="false">Databases</button>
+    </div>
+
+    <!-- ================= PROJECT CARDS (newest first) ================= -->
+    <div class="p-grid">
+    <article class="job-card p-card" data-cat="netadmin">
+      <span class="academic-badge" title="Academic project: INFT 3107 Network Administration 3, Durham College"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-4.5"/><path d="M22 9v6"/></svg>Academic project</span><span class="ribbon">New</span>
+      <div class="p-media"><img src="images/projects/adx-topology.jpg" alt="Network topology of the multi-site Active Directory and Exchange Server 2019 lab" loading="lazy"><span class="glare"></span></div>
+      <div class="p-body">
+        <div class="p-meta"><span class="pill date">Sep 2026 - Dec 2026</span><span class="pill kind">Group project</span></div>
+        <h2>Multi-Site Active Directory &amp; Exchange Server 2019</h2>
+        <p class="sum">Two-site Windows Server 2022 domain for a 100-employee company, extended with Exchange 2019 and tested end to end.</p>
+        <ul class="chips"><li>Active Directory</li><li>Windows Server 2022</li><li>Exchange Server 2019</li><li>DNS</li><li>+7 more</li></ul>
+        <div class="p-actions">
+          <button class="btn btn-green" type="button" data-dialog-open="adx-details">View details</button>
+          <button class="btn btn-dark" type="button" data-dialog-open="adx-media">View media</button>
         </div>
       </div>
     </article>
-
-    <!-- ================= PROJECT 2 ================= -->
-    <article class="job-card project">
-      <!-- Small corner badge so recruiters see this is coursework -->
+    <article class="job-card p-card" data-cat="db">
       <span class="academic-badge" title="Academic project: INFT 3105 Database Management, Durham College"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-4.5"/><path d="M22 9v6"/></svg>Academic project</span>
-      <button class="project-thumb" type="button" data-dialog-open="er-dialog" aria-label="View ER Diagram">
-        <img src="images/projects/vet-er-diagram.jpg" alt="Entity-relationship diagram of the VetClinicDB database" loading="lazy">
-        <span>View ER Diagram</span>
-      </button>
-      <div class="project-body">
-        <p class="project-date">Sept 2026 - Dec 2026</p>
-        <h2>VetClinicDB &ndash; Veterinary Clinic Database (Microsoft SQL Server)</h2>
-        <p>Designed and built a relational database in Microsoft SQL Server that manages the records of a veterinary clinic: owners and pets, veterinarians, appointments, treatments, medications, prescriptions and invoices. Completed as an individual project for INFT 3105 Database Management at Durham College.</p>
-        <p>Worked in three phases: a nine-table schema, normalization to 3NF that grew it to 11 tables, and transaction management. Business rules are enforced in the database with primary and foreign keys, CHECK and UNIQUE constraints, and a persisted computed invoice total.</p>
-        <p>Loaded 2,380 rows of synthetic data and wrote three T-SQL transactions (client registration, visit checkout and refund), each across five tables, using TRY...CATCH with rollback.</p>
-        <p>Verified the design with row-count and join queries, and by testing failures: an over-dispensed medication triggered a constraint error (547) that rolled back the whole checkout, and a repeat refund was rejected by a guard clause (error 50003).</p>
-        <h3>Skills used</h3>
-        <ul class="chips">
-          <li>Microsoft SQL Server</li>
-          <li>T-SQL</li>
-          <li>Database Design</li>
-          <li>Normalization (3NF)</li>
-          <li>ER Diagrams</li>
-          <li>Transactions (ACID)</li>
-          <li>Data Integrity</li>
-          <li>SSMS</li>
-        </ul>
-        <div class="btn-row">
-          <button class="btn btn-green" type="button" data-dialog-open="vet-pdf-dialog">View Project Report</button>
-          <button class="btn btn-dark" type="button" data-dialog-open="er-dialog">View ER Diagram</button>
+      <div class="p-media"><img src="images/projects/vet-er-diagram.jpg" alt="Entity-relationship diagram of the VetClinicDB database" loading="lazy"><span class="glare"></span></div>
+      <div class="p-body">
+        <div class="p-meta"><span class="pill date">Sept 2026 - Dec 2026</span><span class="pill kind">Individual project</span></div>
+        <h2>VetClinicDB &ndash; Veterinary Clinic Database</h2>
+        <p class="sum">An 11-table, 3NF SQL Server database with constraints, 2,380 rows of test data and rollback-safe transactions.</p>
+        <ul class="chips"><li>Microsoft SQL Server</li><li>T-SQL</li><li>Database Design</li><li>Normalization (3NF)</li><li>+4 more</li></ul>
+        <div class="p-actions">
+          <button class="btn btn-green" type="button" data-dialog-open="vet-details">View details</button>
+          <button class="btn btn-dark" type="button" data-dialog-open="vet-media">View media</button>
         </div>
       </div>
     </article>
+    <article class="job-card p-card" data-cat="netadmin">
+      
+      <div class="p-media"><img src="images/projects/network-topology.jpg" alt="Network topology of the Windows Server 2022 Active Directory lab" loading="lazy"><span class="glare"></span></div>
+      <div class="p-body">
+        <div class="p-meta"><span class="pill date">Jan 2026 - Apr 2026</span><span class="pill kind">Lab</span></div>
+        <h2>Active Directory &amp; Enterprise Security Lab</h2>
+        <p class="sum">Windows Server 2022 domain with GPOs, department file shares, security auditing and troubleshooting tests.</p>
+        <ul class="chips"><li>Group Policy (GPO)</li><li>Windows Server 2022</li><li>Security Auditing</li><li>DHCP</li><li>+6 more</li></ul>
+        <div class="p-actions">
+          <button class="btn btn-green" type="button" data-dialog-open="ad-details">View details</button>
+          <button class="btn btn-dark" type="button" data-dialog-open="ad-media">View media</button>
+        </div>
+      </div>
+    </article>
+    </div>
 
   </div>
 </section>
 
-<!-- ================= POP-UP: PROJECT DOCUMENT ================= -->
-<dialog id="project-pdf-dialog" class="resume-dialog" aria-label="Project document">
-  <div class="resume-bar"><strong>Project document</strong><span><a href="projects/Windows-Server-2022-AD-Project.pdf" download>Download PDF</a><button type="button" data-dialog-close>Close</button></span></div>
-  <div class="resume-pages">
-    <img src="images/projects/ad-lab-page-01.jpg" alt="AD lab document, page 1" loading="lazy">
-    <img src="images/projects/ad-lab-page-02.jpg" alt="AD lab document, page 2" loading="lazy">
-    <img src="images/projects/ad-lab-page-03.jpg" alt="AD lab document, page 3" loading="lazy">
-    <img src="images/projects/ad-lab-page-04.jpg" alt="AD lab document, page 4" loading="lazy">
-    <img src="images/projects/ad-lab-page-05.jpg" alt="AD lab document, page 5" loading="lazy">
-    <img src="images/projects/ad-lab-page-06.jpg" alt="AD lab document, page 6" loading="lazy">
-    <img src="images/projects/ad-lab-page-07.jpg" alt="AD lab document, page 7" loading="lazy">
-    <img src="images/projects/ad-lab-page-08.jpg" alt="AD lab document, page 8" loading="lazy">
-    <img src="images/projects/ad-lab-page-09.jpg" alt="AD lab document, page 9" loading="lazy">
-    <img src="images/projects/ad-lab-page-10.jpg" alt="AD lab document, page 10" loading="lazy">
-    <img src="images/projects/ad-lab-page-11.jpg" alt="AD lab document, page 11" loading="lazy">
-    <img src="images/projects/ad-lab-page-12.jpg" alt="AD lab document, page 12" loading="lazy">
-    <img src="images/projects/ad-lab-page-13.jpg" alt="AD lab document, page 13" loading="lazy">
-    <img src="images/projects/ad-lab-page-14.jpg" alt="AD lab document, page 14" loading="lazy">
-    <img src="images/projects/ad-lab-page-15.jpg" alt="AD lab document, page 15" loading="lazy">
-    <img src="images/projects/ad-lab-page-16.jpg" alt="AD lab document, page 16" loading="lazy">
-    <img src="images/projects/ad-lab-page-17.jpg" alt="AD lab document, page 17" loading="lazy">
+<!-- ================= POP-UPS: DETAILS (text) AND MEDIA (topology + PDF) ================= -->
+<dialog id="adx-details" class="resume-dialog" aria-label="Multi-Site Active Directory and Exchange Server 2019 Deployment details">
+  <div class="resume-bar"><strong>Project details</strong><span><button type="button" data-dialog-close>Close</button></span></div>
+  <div class="detail">
+    <div class="p-meta"><span class="pill date">Sep 2026 - Dec 2026</span><span class="pill kind">Group project</span></div>
+    <h2>Multi-Site Active Directory and Exchange Server 2019 Deployment</h2>
+      <p>Group lab (Group 6, four students) for INFT 3107 Network Administration 3 at Durham College. We built a two-site Windows Server 2022 domain for a fictional 100-employee company, Contoso Office Solutions, with a Toronto head office and a Vancouver branch. Each member hosted virtual machines on their own laptop, bridged onto one shared network, and we extended the same environment with Exchange Server 2019.</p>
+      <p><strong>Infrastructure:</strong> two domain controllers with DNS and DHCP; AD Sites and Services with a tuned TOR-VAN site link and verified replication (0 failures in repadmin); Group Policy for password, desktop and USB-restriction settings; group-based NTFS permissions on a file server; PowerShell automation for OUs and users; Windows Server Backup and the AD Recycle Bin; remote management with RSAT and Windows Admin Center.</p>
+      <p><strong>Exchange:</strong> prepared the schema, forest and domain; installed a Mailbox server and an Edge Transport server linked with an Edge Subscription and EdgeSync; configured OWA and ECP with TLS and tested mail flow with message tracking. Backed up the mailbox database with Windows Server Backup and restored a mailbox through a recovery database.</p>
+      <p><strong>My role:</strong> Network Architect and Server Admin. I designed the topology and IP schema, hosted the primary domain controller and the Exchange Mailbox server, and configured DHCP and AD Sites and Services.</p>
+      <p><strong>Troubleshooting:</strong> every test email failed with a PRX2 error until the protocol logs showed the Exchange server sending internal lookups to a public DNS server. Removing it and pointing the server at the domain controller restored mail flow.</p>
+    <h3>Skills used</h3>
+    <ul class="chips"><li>Active Directory</li><li>Windows Server 2022</li><li>Exchange Server 2019</li><li>DNS</li><li>DHCP</li><li>Group Policy</li><li>AD Sites and Replication</li><li>PowerShell</li><li>Windows Server Backup</li><li>Windows Admin Center</li><li>Troubleshooting</li></ul>
+    <div class="btn-row" style="margin-top:24px"><button class="btn btn-green" type="button" data-dialog-open="adx-media">View media</button></div>
   </div>
 </dialog>
-
-<!-- ================= POP-UP: NETWORK TOPOLOGY ================= -->
-<dialog id="topology-dialog" class="resume-dialog" aria-label="Network topology">
-  <div class="resume-bar"><strong>Network topology</strong><span><button type="button" data-dialog-close>Close</button></span></div>
-  <div class="resume-pages">
-    <img src="images/projects/network-topology.jpg" alt="Network topology: DC01 running Windows Server 2022 for corp.local, two domain-joined clients, three organizational units, group policies and monitoring" loading="lazy" style="max-width:1000px">
+<dialog id="vet-details" class="resume-dialog" aria-label="VetClinicDB &ndash; Veterinary Clinic Database (Microsoft SQL Server) details">
+  <div class="resume-bar"><strong>Project details</strong><span><button type="button" data-dialog-close>Close</button></span></div>
+  <div class="detail">
+    <div class="p-meta"><span class="pill date">Sept 2026 - Dec 2026</span><span class="pill kind">Individual project</span></div>
+    <h2>VetClinicDB &ndash; Veterinary Clinic Database (Microsoft SQL Server)</h2>
+      <p>Designed and built a relational database in Microsoft SQL Server that manages the records of a veterinary clinic: owners and pets, veterinarians, appointments, treatments, medications, prescriptions and invoices. Completed as an individual project for INFT 3105 Database Management at Durham College.</p>
+      <p>Worked in three phases: a nine-table schema, normalization to 3NF that grew it to 11 tables, and transaction management. Business rules are enforced in the database with primary and foreign keys, CHECK and UNIQUE constraints, and a persisted computed invoice total.</p>
+      <p>Loaded 2,380 rows of synthetic data and wrote three T-SQL transactions (client registration, visit checkout and refund), each across five tables, using TRY...CATCH with rollback.</p>
+      <p>Verified the design with row-count and join queries, and by testing failures: an over-dispensed medication triggered a constraint error (547) that rolled back the whole checkout, and a repeat refund was rejected by a guard clause (error 50003).</p>
+    <h3>Skills used</h3>
+    <ul class="chips"><li>Microsoft SQL Server</li><li>T-SQL</li><li>Database Design</li><li>Normalization (3NF)</li><li>ER Diagrams</li><li>Transactions (ACID)</li><li>Data Integrity</li><li>SSMS</li></ul>
+    <div class="btn-row" style="margin-top:24px"><button class="btn btn-green" type="button" data-dialog-open="vet-media">View media</button></div>
   </div>
 </dialog>
-
-<!-- ================= POP-UP: VETCLINICDB PROJECT REPORT ================= -->
-<dialog id="vet-pdf-dialog" class="resume-dialog" aria-label="VetClinicDB project report">
-  <div class="resume-bar"><strong>VetClinicDB project report</strong><span><a href="projects/VetClinicDB-Project-Report.pdf" download>Download PDF</a><button type="button" data-dialog-close>Close</button></span></div>
+<dialog id="ad-details" class="resume-dialog" aria-label="Windows Server 2022 &ndash; Active Directory &amp; Enterprise Security Lab details">
+  <div class="resume-bar"><strong>Project details</strong><span><button type="button" data-dialog-close>Close</button></span></div>
+  <div class="detail">
+    <div class="p-meta"><span class="pill date">Jan 2026 - Apr 2026</span><span class="pill kind">Lab</span></div>
+    <h2>Windows Server 2022 &ndash; Active Directory &amp; Enterprise Security Lab</h2>
+      <p>Designed and implemented a Windows Server 2022 enterprise lab environment simulating a real organizational network.</p>
+      <p>Configured Active Directory Domain Services (AD DS), DNS, and DHCP. Created Organizational Units (Finance, HR, IT), managed users and security groups, and implemented Group Policy Objects (GPOs) for password policies, account lockout, security restrictions, and department-based drive mapping using item-level targeting.</p>
+      <p>Configured NTFS permissions for secure departmental file shares and enabled advanced security auditing for sensitive Finance data (Event ID 4663).</p>
+      <p>Performed testing and troubleshooting by simulating DNS failures, unauthorized access attempts, and account lockouts. Validated configurations using gpupdate, gpresult, auditpol, and Event Viewer.</p>
+    <h3>Skills used</h3>
+    <ul class="chips"><li>Group Policy (GPO)</li><li>Windows Server 2022</li><li>Security Auditing</li><li>DHCP</li><li>Network Administration</li><li>Active Directory</li><li>Event Viewer</li><li>DNS</li><li>NTFS Permissions</li><li>Identity and Access Management (IAM)</li></ul>
+    <div class="btn-row" style="margin-top:24px"><button class="btn btn-green" type="button" data-dialog-open="ad-media">View media</button></div>
+  </div>
+</dialog>
+<dialog id="adx-media" class="resume-dialog" aria-label="Multi-Site AD and Exchange media">
+  <div class="resume-bar"><strong>Multi-Site AD and Exchange: topology and project PDF</strong><span><a href="projects/Multi-Site-AD-Exchange-Project.pdf" download>Download PDF</a><button type="button" data-dialog-close>Close</button></span></div>
   <div class="resume-pages">
+    <p class="media-label">Network topology</p>
+    <img src="images/projects/adx-topology.jpg" alt="Network topology of the multi-site Active Directory and Exchange Server 2019 lab" loading="lazy" style="max-width:1000px">
+    <p class="media-label">Exchange mail flow</p>
+    <img src="images/projects/adx-mailflow.jpg" alt="Exchange mail-flow diagram: Edge Transport, Mailbox server, domain controller and clients" loading="lazy" style="max-width:1000px">
+    <p class="media-label">Project document</p>
+    <img src="images/projects/adx-page-01.jpg" alt="Multi-site AD and Exchange project document, page 1" loading="lazy">
+    <img src="images/projects/adx-page-02.jpg" alt="Multi-site AD and Exchange project document, page 2" loading="lazy">
+    <img src="images/projects/adx-page-03.jpg" alt="Multi-site AD and Exchange project document, page 3" loading="lazy">
+    <img src="images/projects/adx-page-04.jpg" alt="Multi-site AD and Exchange project document, page 4" loading="lazy">
+    <img src="images/projects/adx-page-05.jpg" alt="Multi-site AD and Exchange project document, page 5" loading="lazy">
+    <img src="images/projects/adx-page-06.jpg" alt="Multi-site AD and Exchange project document, page 6" loading="lazy">
+    <img src="images/projects/adx-page-07.jpg" alt="Multi-site AD and Exchange project document, page 7" loading="lazy">
+    <img src="images/projects/adx-page-08.jpg" alt="Multi-site AD and Exchange project document, page 8" loading="lazy">
+    <img src="images/projects/adx-page-09.jpg" alt="Multi-site AD and Exchange project document, page 9" loading="lazy">
+    <img src="images/projects/adx-page-10.jpg" alt="Multi-site AD and Exchange project document, page 10" loading="lazy">
+    <img src="images/projects/adx-page-11.jpg" alt="Multi-site AD and Exchange project document, page 11" loading="lazy">
+    <img src="images/projects/adx-page-12.jpg" alt="Multi-site AD and Exchange project document, page 12" loading="lazy">
+    <img src="images/projects/adx-page-13.jpg" alt="Multi-site AD and Exchange project document, page 13" loading="lazy">
+    <img src="images/projects/adx-page-14.jpg" alt="Multi-site AD and Exchange project document, page 14" loading="lazy">
+    <img src="images/projects/adx-page-15.jpg" alt="Multi-site AD and Exchange project document, page 15" loading="lazy">
+    <img src="images/projects/adx-page-16.jpg" alt="Multi-site AD and Exchange project document, page 16" loading="lazy">
+    <img src="images/projects/adx-page-17.jpg" alt="Multi-site AD and Exchange project document, page 17" loading="lazy">
+    <img src="images/projects/adx-page-18.jpg" alt="Multi-site AD and Exchange project document, page 18" loading="lazy">
+    <img src="images/projects/adx-page-19.jpg" alt="Multi-site AD and Exchange project document, page 19" loading="lazy">
+    <img src="images/projects/adx-page-20.jpg" alt="Multi-site AD and Exchange project document, page 20" loading="lazy">
+    <img src="images/projects/adx-page-21.jpg" alt="Multi-site AD and Exchange project document, page 21" loading="lazy">
+    <img src="images/projects/adx-page-22.jpg" alt="Multi-site AD and Exchange project document, page 22" loading="lazy">
+    <img src="images/projects/adx-page-23.jpg" alt="Multi-site AD and Exchange project document, page 23" loading="lazy">
+    <img src="images/projects/adx-page-24.jpg" alt="Multi-site AD and Exchange project document, page 24" loading="lazy">
+    <img src="images/projects/adx-page-25.jpg" alt="Multi-site AD and Exchange project document, page 25" loading="lazy">
+    <img src="images/projects/adx-page-26.jpg" alt="Multi-site AD and Exchange project document, page 26" loading="lazy">
+    <img src="images/projects/adx-page-27.jpg" alt="Multi-site AD and Exchange project document, page 27" loading="lazy">
+    <img src="images/projects/adx-page-28.jpg" alt="Multi-site AD and Exchange project document, page 28" loading="lazy">
+    <img src="images/projects/adx-page-29.jpg" alt="Multi-site AD and Exchange project document, page 29" loading="lazy">
+    <img src="images/projects/adx-page-30.jpg" alt="Multi-site AD and Exchange project document, page 30" loading="lazy">
+    <img src="images/projects/adx-page-31.jpg" alt="Multi-site AD and Exchange project document, page 31" loading="lazy">
+    <img src="images/projects/adx-page-32.jpg" alt="Multi-site AD and Exchange project document, page 32" loading="lazy">
+    <img src="images/projects/adx-page-33.jpg" alt="Multi-site AD and Exchange project document, page 33" loading="lazy">
+    <img src="images/projects/adx-page-34.jpg" alt="Multi-site AD and Exchange project document, page 34" loading="lazy">
+    <img src="images/projects/adx-page-35.jpg" alt="Multi-site AD and Exchange project document, page 35" loading="lazy">
+    <img src="images/projects/adx-page-36.jpg" alt="Multi-site AD and Exchange project document, page 36" loading="lazy">
+    <img src="images/projects/adx-page-37.jpg" alt="Multi-site AD and Exchange project document, page 37" loading="lazy">
+    <img src="images/projects/adx-page-38.jpg" alt="Multi-site AD and Exchange project document, page 38" loading="lazy">
+    <img src="images/projects/adx-page-39.jpg" alt="Multi-site AD and Exchange project document, page 39" loading="lazy">
+    <img src="images/projects/adx-page-40.jpg" alt="Multi-site AD and Exchange project document, page 40" loading="lazy">
+    <img src="images/projects/adx-page-41.jpg" alt="Multi-site AD and Exchange project document, page 41" loading="lazy">
+    <img src="images/projects/adx-page-42.jpg" alt="Multi-site AD and Exchange project document, page 42" loading="lazy">
+    <img src="images/projects/adx-page-43.jpg" alt="Multi-site AD and Exchange project document, page 43" loading="lazy">
+    <img src="images/projects/adx-page-44.jpg" alt="Multi-site AD and Exchange project document, page 44" loading="lazy">
+    <img src="images/projects/adx-page-45.jpg" alt="Multi-site AD and Exchange project document, page 45" loading="lazy">
+    <img src="images/projects/adx-page-46.jpg" alt="Multi-site AD and Exchange project document, page 46" loading="lazy">
+    <img src="images/projects/adx-page-47.jpg" alt="Multi-site AD and Exchange project document, page 47" loading="lazy">
+    <img src="images/projects/adx-page-48.jpg" alt="Multi-site AD and Exchange project document, page 48" loading="lazy">
+    <img src="images/projects/adx-page-49.jpg" alt="Multi-site AD and Exchange project document, page 49" loading="lazy">
+    <img src="images/projects/adx-page-50.jpg" alt="Multi-site AD and Exchange project document, page 50" loading="lazy">
+    <img src="images/projects/adx-page-51.jpg" alt="Multi-site AD and Exchange project document, page 51" loading="lazy">
+    <img src="images/projects/adx-page-52.jpg" alt="Multi-site AD and Exchange project document, page 52" loading="lazy">
+    <img src="images/projects/adx-page-53.jpg" alt="Multi-site AD and Exchange project document, page 53" loading="lazy">
+    <img src="images/projects/adx-page-54.jpg" alt="Multi-site AD and Exchange project document, page 54" loading="lazy">
+    <img src="images/projects/adx-page-55.jpg" alt="Multi-site AD and Exchange project document, page 55" loading="lazy">
+  </div>
+</dialog>
+<dialog id="vet-media" class="resume-dialog" aria-label="VetClinicDB media">
+  <div class="resume-bar"><strong>VetClinicDB: topology and project PDF</strong><span><a href="projects/VetClinicDB-Project-Report.pdf" download>Download PDF</a><button type="button" data-dialog-close>Close</button></span></div>
+  <div class="resume-pages">
+    <p class="media-label">ER diagram</p>
+    <img src="images/projects/vet-er-diagram.jpg" alt="Entity-relationship diagram of VetClinicDB showing 11 tables in 3NF" loading="lazy" style="max-width:1000px">
+    <p class="media-label">Project document</p>
     <img src="images/projects/vet-page-01.jpg" alt="VetClinicDB report, page 1" loading="lazy">
     <img src="images/projects/vet-page-02.jpg" alt="VetClinicDB report, page 2" loading="lazy">
     <img src="images/projects/vet-page-03.jpg" alt="VetClinicDB report, page 3" loading="lazy">
@@ -159,12 +225,29 @@
     <img src="images/projects/vet-page-15.jpg" alt="VetClinicDB report, page 15" loading="lazy">
   </div>
 </dialog>
-
-<!-- ================= POP-UP: VETCLINICDB ER DIAGRAM ================= -->
-<dialog id="er-dialog" class="resume-dialog" aria-label="VetClinicDB ER diagram">
-  <div class="resume-bar"><strong>VetClinicDB ER diagram</strong><span><button type="button" data-dialog-close>Close</button></span></div>
+<dialog id="ad-media" class="resume-dialog" aria-label="Windows Server AD Lab media">
+  <div class="resume-bar"><strong>Windows Server AD Lab: topology and project PDF</strong><span><a href="projects/Windows-Server-2022-AD-Project.pdf" download>Download PDF</a><button type="button" data-dialog-close>Close</button></span></div>
   <div class="resume-pages">
-    <img src="images/projects/vet-er-diagram.jpg" alt="Entity-relationship diagram of VetClinicDB showing 11 tables in 3NF" loading="lazy" style="max-width:1000px">
+    <p class="media-label">Network topology</p>
+    <img src="images/projects/network-topology.jpg" alt="Network topology: DC01 running Windows Server 2022 for corp.local, two domain-joined clients, three organizational units, group policies and monitoring" loading="lazy" style="max-width:1000px">
+    <p class="media-label">Project document</p>
+    <img src="images/projects/ad-lab-page-01.jpg" alt="AD lab document, page 1" loading="lazy">
+    <img src="images/projects/ad-lab-page-02.jpg" alt="AD lab document, page 2" loading="lazy">
+    <img src="images/projects/ad-lab-page-03.jpg" alt="AD lab document, page 3" loading="lazy">
+    <img src="images/projects/ad-lab-page-04.jpg" alt="AD lab document, page 4" loading="lazy">
+    <img src="images/projects/ad-lab-page-05.jpg" alt="AD lab document, page 5" loading="lazy">
+    <img src="images/projects/ad-lab-page-06.jpg" alt="AD lab document, page 6" loading="lazy">
+    <img src="images/projects/ad-lab-page-07.jpg" alt="AD lab document, page 7" loading="lazy">
+    <img src="images/projects/ad-lab-page-08.jpg" alt="AD lab document, page 8" loading="lazy">
+    <img src="images/projects/ad-lab-page-09.jpg" alt="AD lab document, page 9" loading="lazy">
+    <img src="images/projects/ad-lab-page-10.jpg" alt="AD lab document, page 10" loading="lazy">
+    <img src="images/projects/ad-lab-page-11.jpg" alt="AD lab document, page 11" loading="lazy">
+    <img src="images/projects/ad-lab-page-12.jpg" alt="AD lab document, page 12" loading="lazy">
+    <img src="images/projects/ad-lab-page-13.jpg" alt="AD lab document, page 13" loading="lazy">
+    <img src="images/projects/ad-lab-page-14.jpg" alt="AD lab document, page 14" loading="lazy">
+    <img src="images/projects/ad-lab-page-15.jpg" alt="AD lab document, page 15" loading="lazy">
+    <img src="images/projects/ad-lab-page-16.jpg" alt="AD lab document, page 16" loading="lazy">
+    <img src="images/projects/ad-lab-page-17.jpg" alt="AD lab document, page 17" loading="lazy">
   </div>
 </dialog>
 

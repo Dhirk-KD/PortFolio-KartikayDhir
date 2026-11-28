@@ -12,7 +12,7 @@ PUT IT ON GITHUB PAGES
 FILES
 index.html       home: hero, about, education, skills, certifications, resume pop-up
 experience.html  timeline of jobs (copy a <li class="t-item"> block to add one)
-projects.html    projects (copy an <article class="job-card project"> block to add one)
+projects.html    projects (copy an <article class="job-card p-card"> card plus its details and media <dialog> blocks to add one)
 css/style.css    all styling      js/main.js  menu, pop-ups, 3D tilt
 images/logos/    company and school logos (bell, bestbuy, popeyes, fiveguys, durham)
 images/certs/    award and training certificates
