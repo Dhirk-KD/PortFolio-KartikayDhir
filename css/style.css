@@ -210,7 +210,7 @@ h3 { font-size: 1.15rem; }
 .p-card:nth-child(3) { animation-delay: .24s; }
 @keyframes rise { from { opacity: 0; transform: translateY(26px) rotateX(8deg); } to { opacity: 1; transform: none; } }
 .p-card.hide { display: none; }
-.p-media { position: relative; margin: 14px 14px 0; border-radius: 12px; overflow: hidden; background: #fff; border: 1px solid #cfd8ee;
+.p-media { display: block; width: calc(100% - 28px); padding: 0; cursor: pointer; font: inherit; position: relative; margin: 14px 14px 0; border-radius: 12px; overflow: hidden; background: #fff; border: 1px solid #cfd8ee;
   box-shadow: 0 5px 0 #c6d1ea, 0 14px 22px -12px rgba(16,36,79,.5); transform: translateZ(36px); }
 .p-media img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; transition: transform .5s ease; }
 .p-card:hover .p-media img { transform: scale(1.06); }
@@ -231,8 +231,6 @@ h3 { font-size: 1.15rem; }
 .p-actions .btn-green { box-shadow: 0 5px 0 #4c8c27, 0 10px 16px -8px rgba(0,0,0,.45); }
 .p-actions .btn-dark  { box-shadow: 0 5px 0 #050d22, 0 10px 16px -8px rgba(0,0,0,.45); }
 .p-actions .btn:hover { transform: translateY(2px); }
-.ribbon { position: absolute; top: -14px; right: 18px; z-index: 3; background: var(--grass); color: var(--navy); font-weight: 800; font-size: .8rem; padding: 6px 16px; border-radius: 999px;
-  box-shadow: 0 4px 0 #4c8c27, 0 10px 16px -6px rgba(16,36,79,.6); transform: translateZ(60px); }
 .detail { flex: 1; overflow: auto; background: #fff; padding: 28px 32px; }
 .detail h2 { color: var(--navy); font-size: 1.6rem; }
 .detail h3 { margin: 22px 0 10px; }
@@ -240,3 +238,9 @@ h3 { font-size: 1.15rem; }
 .media-label { max-width: 820px; margin: 4px auto 12px; font-weight: 800; color: var(--navy); }
 @media (max-width: 860px) { .detail { padding: 20px; } .filters { margin-bottom: 32px; } }
 @media (prefers-reduced-motion: reduce) { .p-card { animation: none; } .p-media img, .chip-btn { transition: none; } }
+
+/* "View topology" hint that appears on the card picture when you hover it */
+.p-media .zoom { position: absolute; left: 50%; bottom: 12px; transform: translate(-50%, 8px); opacity: 0; transition: opacity .2s ease, transform .2s ease;
+  background: var(--navy); color: #fff; font-weight: 800; font-size: .82rem; padding: 7px 16px; border-radius: 999px; box-shadow: 0 4px 0 #050d22; white-space: nowrap; }
+.p-media:hover .zoom, .p-media:focus-visible .zoom { opacity: 1; transform: translate(-50%, 0); }
+@media (hover: none) { .p-media .zoom { opacity: 1; transform: translate(-50%, 0); } }
